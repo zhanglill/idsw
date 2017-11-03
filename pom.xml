@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.inspur.dsw</groupId>
+	<artifactId>idsw</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<loushang-framework.version>7.2.0</loushang-framework.version>
+		<hadoop-client.version>2.7.3</hadoop-client.version>
+		<jdk.version>1.8</jdk.version>
+		<spring-test.version>4.3.9.RELEASE</spring-test.version>
+		<junit.version>4.12</junit.version>
+		<servlet-api.version>3.0.1</servlet-api.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>nexus-jar</id>
+			<name>Team Nexus jar Repository</name>
+			<url>http://10.110.13.14:8081/nexus/content/groups/inspur-loushang/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus-plugin</id>
+			<name>Team Nexus plugin Repository</name>
+			<url>http://10.110.13.14:8081/nexus/content/groups/inspur-loushang/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<dependencies>
+		<dependency>
+			<groupId>org.loushang.framework</groupId>
+			<artifactId>framework-web-simple</artifactId>
+			<version>${loushang-framework.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>org.loushang.framework</groupId>
+			<artifactId>framework</artifactId>
+			<version>${loushang-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${hadoop-client.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-test.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>idsw</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
